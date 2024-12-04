@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\migue\\Source\\Repos\\Cajero\\Servidor\\Servidor.csproj": {}
+    "C:\\Users\\PABLO\\Desktop\\Sistemas distribuidos y programacion en paralelo\\Cajero\\Servidor\\Servidor.csproj": {}
   },
   "projects": {
-    "C:\\Users\\migue\\Source\\Repos\\Cajero\\Servidor\\Servidor.csproj": {
+    "C:\\Users\\PABLO\\Desktop\\Sistemas distribuidos y programacion en paralelo\\Cajero\\Servidor\\Servidor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\migue\\Source\\Repos\\Cajero\\Servidor\\Servidor.csproj",
+        "projectUniqueName": "C:\\Users\\PABLO\\Desktop\\Sistemas distribuidos y programacion en paralelo\\Cajero\\Servidor\\Servidor.csproj",
         "projectName": "Servidor",
-        "projectPath": "C:\\Users\\migue\\Source\\Repos\\Cajero\\Servidor\\Servidor.csproj",
-        "packagesPath": "C:\\Users\\migue\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\migue\\Source\\Repos\\Cajero\\Servidor\\obj\\",
+        "projectPath": "C:\\Users\\PABLO\\Desktop\\Sistemas distribuidos y programacion en paralelo\\Cajero\\Servidor\\Servidor.csproj",
+        "packagesPath": "C:\\Users\\PABLO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PABLO\\Desktop\\Sistemas distribuidos y programacion en paralelo\\Cajero\\Servidor\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\migue\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PABLO\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -25,8 +25,6 @@
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -43,8 +41,9 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
-        }
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -74,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

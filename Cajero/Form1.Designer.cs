@@ -48,7 +48,7 @@
             // 
             lblIdentificacion.AutoSize = true;
             lblIdentificacion.Font = new Font("Segoe UI", 12F);
-            lblIdentificacion.Location = new Point(72, 28);
+            lblIdentificacion.Location = new Point(73, 28);
             lblIdentificacion.Name = "lblIdentificacion";
             lblIdentificacion.Size = new Size(122, 21);
             lblIdentificacion.TabIndex = 0;
@@ -61,6 +61,7 @@
             txtID.Name = "txtID";
             txtID.Size = new Size(100, 23);
             txtID.TabIndex = 1;
+            txtID.TextAlign = HorizontalAlignment.Center;
             // 
             // btnEnviar
             // 
@@ -70,6 +71,7 @@
             btnEnviar.TabIndex = 2;
             btnEnviar.Text = "Enviar";
             btnEnviar.UseVisualStyleBackColor = true;
+            btnEnviar.Click += btnEnviar_Click;
             // 
             // btn1
             // 
@@ -80,7 +82,7 @@
             btn1.TabIndex = 3;
             btn1.Text = " 1";
             btn1.UseVisualStyleBackColor = true;
-            btn1.Click += button1_Click;
+            btn1.Click += btn1_Click;
             // 
             // btn2
             // 
@@ -91,6 +93,7 @@
             btn2.TabIndex = 4;
             btn2.Text = " 2";
             btn2.UseVisualStyleBackColor = true;
+            btn2.Click += btn2_Click;
             // 
             // btn3
             // 
@@ -101,6 +104,7 @@
             btn3.TabIndex = 5;
             btn3.Text = " 3";
             btn3.UseVisualStyleBackColor = true;
+            btn3.Click += btn3_Click;
             // 
             // btn4
             // 
@@ -111,6 +115,7 @@
             btn4.TabIndex = 6;
             btn4.Text = " 4";
             btn4.UseVisualStyleBackColor = true;
+            btn4.Click += btn4_Click;
             // 
             // btn5
             // 
@@ -121,6 +126,7 @@
             btn5.TabIndex = 7;
             btn5.Text = " 5";
             btn5.UseVisualStyleBackColor = true;
+            btn5.Click += btn5_Click;
             // 
             // btn6
             // 
@@ -131,6 +137,7 @@
             btn6.TabIndex = 8;
             btn6.Text = " 6";
             btn6.UseVisualStyleBackColor = true;
+            btn6.Click += btn6_Click;
             // 
             // btn7
             // 
@@ -141,6 +148,7 @@
             btn7.TabIndex = 9;
             btn7.Text = " 7";
             btn7.UseVisualStyleBackColor = true;
+            btn7.Click += btn7_Click;
             // 
             // btn8
             // 
@@ -151,6 +159,7 @@
             btn8.TabIndex = 10;
             btn8.Text = " 8";
             btn8.UseVisualStyleBackColor = true;
+            btn8.Click += btn8_Click;
             // 
             // btn9
             // 
@@ -161,6 +170,7 @@
             btn9.TabIndex = 11;
             btn9.Text = " 9";
             btn9.UseVisualStyleBackColor = true;
+            btn9.Click += btn9_Click;
             // 
             // btn0
             // 
@@ -171,6 +181,7 @@
             btn0.TabIndex = 12;
             btn0.Text = " 0";
             btn0.UseVisualStyleBackColor = true;
+            btn0.Click += btn0_Click;
             // 
             // btnBorrar
             // 
@@ -180,13 +191,13 @@
             btnBorrar.TabIndex = 13;
             btnBorrar.Text = "Borrar";
             btnBorrar.UseVisualStyleBackColor = true;
-            btnBorrar.Click += button1_Click_1;
+            btnBorrar.Click += btnBorrar_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(342, 316);
             Controls.Add(btnBorrar);
             Controls.Add(btn0);
             Controls.Add(btn9);
