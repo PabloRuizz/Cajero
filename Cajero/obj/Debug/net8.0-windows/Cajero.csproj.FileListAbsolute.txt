@@ -16,3 +16,5 @@ C:\Users\PABLO\Desktop\Sistemas distribuidos y programacion en paralelo\Cajero\C
 C:\Users\PABLO\Desktop\Sistemas distribuidos y programacion en paralelo\Cajero\Cajero\obj\Debug\net8.0-windows\Cajero.genruntimeconfig.cache
 C:\Users\PABLO\Desktop\Sistemas distribuidos y programacion en paralelo\Cajero\Cajero\obj\Debug\net8.0-windows\ref\Cajero.dll
 C:\Users\PABLO\Desktop\Sistemas distribuidos y programacion en paralelo\Cajero\Cajero\obj\Debug\net8.0-windows\Cajero.Form2.resources
+C:\Users\PABLO\Desktop\Sistemas distribuidos y programacion en paralelo\Cajero\Cajero\obj\Debug\net8.0-windows\Cajero.Form3.resources
+C:\Users\PABLO\Desktop\Sistemas distribuidos y programacion en paralelo\Cajero\Cajero\obj\Debug\net8.0-windows\Cajero.Form4.resources

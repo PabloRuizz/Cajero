@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.DataFormats;
 
 namespace Cajero
 {
@@ -22,5 +23,21 @@ namespace Cajero
 
         }
 
+        private void btnContinuar_Click(object sender, EventArgs e)
+        {
+            if (rbOpcion1.Checked)
+            {
+                Form3 formulario3 = new Form3(); // Reemplaza con el formulario que deseas mostrar.
+                formulario3.Show();
+                this.Hide(); // Opcional: Oculta el formulario actual.
+            }
+            else if (rbOpcion2.Checked)
+            {
+                Form4 formulario4 = new Form4(); // Reemplaza con el formulario que deseas mostrar.
+                formulario4.Show();
+                this.Hide(); // Opcional: Oculta el formulario actual.
+            }
+
+        }
     }
 }

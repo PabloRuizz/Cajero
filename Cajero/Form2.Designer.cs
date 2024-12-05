@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            radioButton1 = new RadioButton();
-            radioButton2 = new RadioButton();
+            rbOpcion1 = new RadioButton();
+            rbOpcion2 = new RadioButton();
+            btnContinuar = new Button();
             SuspendLayout();
             // 
             // label1
@@ -43,35 +44,46 @@
             label1.Text = "¿Qué acción desea realizar?";
             label1.Click += label1_Click;
             // 
-            // radioButton1
+            // rbOpcion1
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(108, 115);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(96, 19);
-            radioButton1.TabIndex = 1;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Retirar dinero";
-            radioButton1.UseVisualStyleBackColor = true;
+            rbOpcion1.AutoSize = true;
+            rbOpcion1.Location = new Point(108, 115);
+            rbOpcion1.Name = "rbOpcion1";
+            rbOpcion1.Size = new Size(96, 19);
+            rbOpcion1.TabIndex = 1;
+            rbOpcion1.TabStop = true;
+            rbOpcion1.Text = "Retirar dinero";
+            rbOpcion1.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rbOpcion2
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(108, 149);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(104, 19);
-            radioButton2.TabIndex = 2;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Ingresar dinero";
-            radioButton2.UseVisualStyleBackColor = true;
+            rbOpcion2.AutoSize = true;
+            rbOpcion2.Location = new Point(108, 149);
+            rbOpcion2.Name = "rbOpcion2";
+            rbOpcion2.Size = new Size(104, 19);
+            rbOpcion2.TabIndex = 2;
+            rbOpcion2.TabStop = true;
+            rbOpcion2.Text = "Ingresar dinero";
+            rbOpcion2.UseVisualStyleBackColor = true;
+            // 
+            // btnContinuar
+            // 
+            btnContinuar.Location = new Point(120, 195);
+            btnContinuar.Name = "btnContinuar";
+            btnContinuar.Size = new Size(75, 23);
+            btnContinuar.TabIndex = 3;
+            btnContinuar.Text = "Continuar";
+            btnContinuar.UseVisualStyleBackColor = true;
+            btnContinuar.Click += btnContinuar_Click;
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(324, 384);
-            Controls.Add(radioButton2);
-            Controls.Add(radioButton1);
+            Controls.Add(btnContinuar);
+            Controls.Add(rbOpcion2);
+            Controls.Add(rbOpcion1);
             Controls.Add(label1);
             Name = "Form2";
             Text = "Form2";
@@ -82,7 +94,8 @@
         #endregion
 
         private Label label1;
-        private RadioButton radioButton1;
-        private RadioButton radioButton2;
+        private RadioButton rbOpcion1;
+        private RadioButton rbOpcion2;
+        private Button btnContinuar;
     }
 }
