@@ -28,12 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form4";
+            label1 = new Label();
+            txtCantidad = new TextBox();
+            btnSiguiente = new Button();
+            SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(14, 75);
+            label1.Name = "label1";
+            label1.Size = new Size(278, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Introduzca el dinero que desea ingresar en la ranura";
+            label1.Click += label1_Click;
+            // 
+            // txtCantidad
+            // 
+            txtCantidad.Location = new Point(102, 137);
+            txtCantidad.Name = "txtCantidad";
+            txtCantidad.Size = new Size(100, 23);
+            txtCantidad.TabIndex = 1;
+            // 
+            // btnSiguiente
+            // 
+            btnSiguiente.Location = new Point(116, 197);
+            btnSiguiente.Name = "btnSiguiente";
+            btnSiguiente.Size = new Size(75, 23);
+            btnSiguiente.TabIndex = 2;
+            btnSiguiente.Text = "Siguiente";
+            btnSiguiente.UseVisualStyleBackColor = true;
+            btnSiguiente.Click += this.btnSiguiente_Click;
+            // 
+            // Form4
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(312, 354);
+            Controls.Add(btnSiguiente);
+            Controls.Add(txtCantidad);
+            Controls.Add(label1);
+            Name = "Form4";
+            Text = "Form4";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label label1;
+        private TextBox txtCantidad;
+        private Button btnSiguiente;
     }
 }
