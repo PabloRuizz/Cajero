@@ -18,3 +18,23 @@ C:\Users\PABLO\Desktop\Sistemas distribuidos y programacion en paralelo\Cajero\C
 C:\Users\PABLO\Desktop\Sistemas distribuidos y programacion en paralelo\Cajero\Cajero\obj\Debug\net8.0-windows\Cajero.Form2.resources
 C:\Users\PABLO\Desktop\Sistemas distribuidos y programacion en paralelo\Cajero\Cajero\obj\Debug\net8.0-windows\Cajero.Form3.resources
 C:\Users\PABLO\Desktop\Sistemas distribuidos y programacion en paralelo\Cajero\Cajero\obj\Debug\net8.0-windows\Cajero.Form4.resources
+C:\Users\migue\Source\Repos\Cajero2\Cajero\bin\Debug\net8.0-windows\Cajero.exe
+C:\Users\migue\Source\Repos\Cajero2\Cajero\bin\Debug\net8.0-windows\Cajero.deps.json
+C:\Users\migue\Source\Repos\Cajero2\Cajero\bin\Debug\net8.0-windows\Cajero.runtimeconfig.json
+C:\Users\migue\Source\Repos\Cajero2\Cajero\bin\Debug\net8.0-windows\Cajero.dll
+C:\Users\migue\Source\Repos\Cajero2\Cajero\bin\Debug\net8.0-windows\Cajero.pdb
+C:\Users\migue\Source\Repos\Cajero2\Cajero\obj\Debug\net8.0-windows\Cajero.Form1.resources
+C:\Users\migue\Source\Repos\Cajero2\Cajero\obj\Debug\net8.0-windows\Cajero.Form2.resources
+C:\Users\migue\Source\Repos\Cajero2\Cajero\obj\Debug\net8.0-windows\Cajero.Form3.resources
+C:\Users\migue\Source\Repos\Cajero2\Cajero\obj\Debug\net8.0-windows\Cajero.Form4.resources
+C:\Users\migue\Source\Repos\Cajero2\Cajero\obj\Debug\net8.0-windows\Cajero.csproj.GenerateResource.cache
+C:\Users\migue\Source\Repos\Cajero2\Cajero\obj\Debug\net8.0-windows\Cajero.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\migue\Source\Repos\Cajero2\Cajero\obj\Debug\net8.0-windows\Cajero.AssemblyInfoInputs.cache
+C:\Users\migue\Source\Repos\Cajero2\Cajero\obj\Debug\net8.0-windows\Cajero.AssemblyInfo.cs
+C:\Users\migue\Source\Repos\Cajero2\Cajero\obj\Debug\net8.0-windows\Cajero.csproj.CoreCompileInputs.cache
+C:\Users\migue\Source\Repos\Cajero2\Cajero\obj\Debug\net8.0-windows\Cajero.sourcelink.json
+C:\Users\migue\Source\Repos\Cajero2\Cajero\obj\Debug\net8.0-windows\Cajero.dll
+C:\Users\migue\Source\Repos\Cajero2\Cajero\obj\Debug\net8.0-windows\refint\Cajero.dll
+C:\Users\migue\Source\Repos\Cajero2\Cajero\obj\Debug\net8.0-windows\Cajero.pdb
+C:\Users\migue\Source\Repos\Cajero2\Cajero\obj\Debug\net8.0-windows\Cajero.genruntimeconfig.cache
+C:\Users\migue\Source\Repos\Cajero2\Cajero\obj\Debug\net8.0-windows\ref\Cajero.dll
