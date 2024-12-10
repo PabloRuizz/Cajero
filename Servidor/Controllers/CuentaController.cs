@@ -4,8 +4,8 @@
 
 namespace Servidor.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
+    //[Route("api/[controller]")]
+    //[ApiController]
     public class CuentaController : ControllerBase
     {
         // GET: api/<CuentaController>
@@ -29,9 +29,17 @@ namespace Servidor.Controllers
         }
 
         // PUT api/<CuentaController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut("DineroAñadirId")]
+        public void Añadir([FromQuery] string id, [FromQuery] int cantidad)
         {
+            FileManager.meterDinero(id, cantidad);
+        }
+
+        // PUT api/<CuentaController>/5
+        [HttpPut("DineroRetirarId")]
+        public void Retirar([FromQuery] string id, [FromQuery] int cantidad)
+        {
+            FileManager.sacarDinero(id, cantidad);
         }
 
         // DELETE api/<CuentaController>/5

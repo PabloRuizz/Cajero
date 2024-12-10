@@ -11,7 +11,7 @@
         "projectName": "Servidor",
         "projectPath": "C:\\Users\\migue\\source\\repos\\Cajero2\\Servidor\\Servidor.csproj",
         "packagesPath": "C:\\Users\\migue\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\migue\\Source\\Repos\\Cajero2\\Servidor\\obj\\",
+        "outputPath": "C:\\Users\\migue\\source\\repos\\Cajero2\\Servidor\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

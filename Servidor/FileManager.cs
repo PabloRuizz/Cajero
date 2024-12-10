@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Runtime.Serialization;
 
 namespace Servidor
 {
@@ -25,20 +26,45 @@ namespace Servidor
                 
                 
                 }
+            }
+        }
 
+        public static void meterDinero(String id, int dinero)
+        {
+            string[] newLinea = getLinea(id);
+
+            if (newLinea != null)
+            {
+                int dineroCuenta = Int32.Parse(newLinea[2]);
+                int linea = Int32.Parse(newLinea[3]);
                 
+                    dineroCuenta = dineroCuenta - dinero;
+                    newLinea[2] = dineroCuenta.ToString();
+
+
+                    string lineaFinal = crearLinea(newLinea[0], newLinea[1], newLinea[2]);
+                    actualizarLinea(lineaFinal, linea);
+
+
+
             }
         }
 
 
         public static String[] getLinea(string id)
         {
-            List<Cuenta> cuentas = new List<Cuenta>();
+          //  File.Create("TextFile1");
+          //  List<Cuenta> cuentas = new List<Cuenta>();
             int posicion = 0;
 
-            if (File.Exists("TextFile1"))
+            string directory = AppDomain.CurrentDomain.BaseDirectory;
+
+            // Ruta completa al archivo FileManager1.txt en el mismo directorio
+            string filePath = Path.Combine(directory, "TextFile2.txt");
+
+            if (File.Exists("TextFile2"))
             {
-                foreach (var linea in File.ReadLines("TextFile1"))
+                foreach (var linea in File.ReadLines("TextFile2"))
                 {
 
                     String lineaRespuesta = linea + ";" + posicion;
@@ -64,7 +90,7 @@ namespace Servidor
             using (StreamReader reader = new StreamReader("TextFile1"))
             using (StreamWriter writer = new StreamWriter(archivoTemp))
             {
-                int currentLine = 1;
+                int currentLine = 0;
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
