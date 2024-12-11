@@ -38,7 +38,7 @@ namespace Servidor
                 int dineroCuenta = Int32.Parse(newLinea[2]);
                 int linea = Int32.Parse(newLinea[3]);
                 
-                    dineroCuenta = dineroCuenta - dinero;
+                    dineroCuenta = dineroCuenta + dinero;
                     newLinea[2] = dineroCuenta.ToString();
 
 
@@ -62,9 +62,9 @@ namespace Servidor
             // Ruta completa al archivo FileManager1.txt en el mismo directorio
             string filePath = Path.Combine(directory, "TextFile2.txt");
 
-            if (File.Exists("TextFile2"))
+            if (File.Exists("TextFile1.txt"))
             {
-                foreach (var linea in File.ReadLines("TextFile2"))
+                foreach (var linea in File.ReadLines("TextFile1.txt"))
                 {
 
                     String lineaRespuesta = linea + ";" + posicion;
@@ -87,7 +87,7 @@ namespace Servidor
         static void actualizarLinea(string nuevoTexto, int linea)
         {
             string archivoTemp = "archivo_temp.txt";
-            using (StreamReader reader = new StreamReader("TextFile1"))
+            using (StreamReader reader = new StreamReader("TextFile1.txt"))
             using (StreamWriter writer = new StreamWriter(archivoTemp))
             {
                 int currentLine = 0;
@@ -105,8 +105,8 @@ namespace Servidor
                     currentLine++;
                 }
             }
-            File.Delete("TextFile1");
-            File.Move(archivoTemp, "TextFile1");
+            File.Delete("TextFile1.txt");
+            File.Move(archivoTemp, "TextFile1.txt");
         }
     }
 }
