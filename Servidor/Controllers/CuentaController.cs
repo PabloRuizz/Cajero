@@ -21,9 +21,23 @@ namespace Servidor.Controllers
         [HttpGet("id")]
         public string Get([FromQuery]string id)
         {
-            string[] resultado=FileManager.getLinea(id);
+            string[] resultado=FileManager.getLineaId(id);
             return FileManager.crearLinea(resultado[0], resultado[1], resultado[2]);
 
+        }
+
+        [HttpGet("nombre")]
+        public string GetNombre([FromQuery] string nombre)
+        {
+            string[] resultado=FileManager.getLineaNombre(nombre);
+            return FileManager.crearLinea(resultado[0], resultado[1], resultado[2]);
+        }
+
+        [HttpGet("Comprobar dinero")]
+        public string GetDinero([FromQuery] string id)
+        {
+            string[] resultado=FileManager.getLineaId(id);
+            return "La cantidad en la cuenta "+ id+ " es "+resultado[2];
         }
 
         [HttpGet("all")]
@@ -54,8 +68,9 @@ namespace Servidor.Controllers
 
         // DELETE api/<CuentaController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(string id)
         {
+            FileManager.eliminarLinea(id);
         }
     }
 }

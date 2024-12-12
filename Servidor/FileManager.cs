@@ -23,7 +23,7 @@ namespace Servidor
 
         public static void sacarDinero(String id, int dinero)
         {
-            string[] newLinea = getLinea(id);
+            string[] newLinea = getLineaId(id);
 
             if (newLinea != null)
             {
@@ -45,7 +45,7 @@ namespace Servidor
 
         public static void meterDinero(String id, int dinero)
         {
-            string[] newLinea = getLinea(id);
+            string[] newLinea = getLineaId(id);
 
             if (newLinea != null)
             {
@@ -83,7 +83,7 @@ namespace Servidor
         }
 
 
-        public static string[] getLinea(string id)
+        public static string[] getLineaId(string id)
         {
             int posicion = 0;
 
@@ -153,6 +153,16 @@ namespace Servidor
             }
             File.Delete("TextFile1.txt");
             File.Move(archivoTemp, "TextFile1.txt");
+        }
+
+
+        public static void eliminarLinea(string nombre)
+        {
+            var lines = File.ReadAllLines("TextFile1.txt").ToList();
+
+            lines.RemoveAll(line => line.Contains(nombre));
+
+            File.WriteAllLines("TextFile1.txt", lines);
         }
     }
 }

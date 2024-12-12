@@ -1,3 +1,2 @@
 eo,Miguel,305
 ao,Paco,800
-ui,Mario,1350
