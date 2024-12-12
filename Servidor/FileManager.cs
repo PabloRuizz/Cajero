@@ -5,7 +5,21 @@ namespace Servidor
 {
     public class FileManager
     {
-
+        //private string archivo = "TextFile1.txt";
+        public static string[] get()
+        {
+            int posicion = 0;
+            string[] result = new string[50];
+            if (File.Exists("TextFile1.txt"))
+            {
+                foreach (var linea in File.ReadLines("TextFile1.txt"))
+                {
+                    result[posicion] = linea;
+                    posicion++;
+                }
+            }
+            return result;
+        }
 
         public static void sacarDinero(String id, int dinero)
         {
@@ -50,27 +64,59 @@ namespace Servidor
             }
         }
 
-
-        public static String[] getLinea(string id)
+        public static bool CrearCuenta(string id, string nombre)
         {
-          //  File.Create("TextFile1");
-          //  List<Cuenta> cuentas = new List<Cuenta>();
+            string[] linea=getLineaNombre(nombre);
+
+            if (linea == null) {
+                using (StreamWriter writer = new StreamWriter("TextFile1.txt"))
+                {
+                    writer.WriteLine(crearLinea(id,nombre,"0"));
+                    return true;
+                }
+            }
+            else {
+                return false;
+            }
+
+
+        }
+
+
+        public static string[] getLinea(string id)
+        {
             int posicion = 0;
-
-            string directory = AppDomain.CurrentDomain.BaseDirectory;
-
-            // Ruta completa al archivo FileManager1.txt en el mismo directorio
-            string filePath = Path.Combine(directory, "TextFile2.txt");
 
             if (File.Exists("TextFile1.txt"))
             {
                 foreach (var linea in File.ReadLines("TextFile1.txt"))
                 {
 
-                    String lineaRespuesta = linea + ";" + posicion;
+                    String lineaRespuesta = linea + "," + posicion;
                     posicion++;
-                    var datos = lineaRespuesta.Split(';');
+                    var datos = lineaRespuesta.Split(',');
                     if (datos.Length == 4 & datos[0]==id)
+                    {
+                        return datos;
+                    }
+                }
+            }
+            return null;
+        }
+
+        public static string[] getLineaNombre(string nombre)
+        {
+            int posicion = 0;
+
+            if (File.Exists("TextFile1.txt"))
+            {
+                foreach (var linea in File.ReadLines("TextFile1.txt"))
+                {
+
+                    String lineaRespuesta = linea + "," + posicion;
+                    posicion++;
+                    var datos = lineaRespuesta.Split(',');
+                    if (datos.Length == 4 & datos[1] == nombre)
                     {
                         return datos;
                     }
@@ -81,7 +127,7 @@ namespace Servidor
 
         public static string crearLinea(string id,  string nombre, string cantidad)
         {
-            return id + ";" + nombre + ";" + cantidad;
+            return id + "," + nombre + "," + cantidad;
         }
 
         static void actualizarLinea(string nuevoTexto, int linea)

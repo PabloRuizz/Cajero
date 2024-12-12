@@ -4,22 +4,32 @@
 
 namespace Servidor.Controllers
 {
-    //[Route("api/[controller]")]
-    //[ApiController]
+    [Route("api/[controller]")]
+    [ApiController]
     public class CuentaController : ControllerBase
     {
         // GET: api/<CuentaController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<string> Getui()
         {
-            return new string[] { "value1", "value2" };
+
+            return null;
+            //return FileManager.get();
         }
 
         // GET api/<CuentaController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("id")]
+        public string Get([FromQuery]string id)
         {
-            return "value";
+            string[] resultado=FileManager.getLinea(id);
+            return FileManager.crearLinea(resultado[0], resultado[1], resultado[2]);
+
+        }
+
+        [HttpGet("all")]
+        public String[] Get()
+        {
+            return FileManager.get();
         }
 
         // POST api/<CuentaController>

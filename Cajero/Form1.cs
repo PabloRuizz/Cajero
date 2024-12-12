@@ -75,7 +75,7 @@ namespace Cajero
         private void btnEnviar_Click(object sender, EventArgs e)
         {
             // Crea una instancia del segundo formulario
-            Form2 formulario2 = new Form2();
+            Form2 formulario2 = new Form2(txtID.Text);
 
             // Muestra el segundo formulario
             formulario2.Show();

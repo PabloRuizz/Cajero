@@ -6,18 +6,21 @@ using System.Diagnostics.SymbolStore;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.WebRequestMethods;
 
 namespace Cajero
 {
     public partial class Form4 : Form
     {
-        int i=0;
-        public Form4(int i)
+        string id;
+        int opcion = 0;
+        public Form4(int i, string newId)
         {
             InitializeComponent();
-            this.i = i;
+            this.opcion = i;
             switch (i)
             {
                 case 0:
@@ -27,6 +30,7 @@ namespace Cajero
                     label1.Text = "Introduzca el dinero que desea ingresar en la ranura";
                     break;
             }
+            this.id = newId;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -34,52 +38,51 @@ namespace Cajero
 
         }
 
-        private void btnSiguiente_Click(object sender, EventArgs e)
+        private async void btnSiguiente_Click(object sender, EventArgs e)
         {
-            /*// Validar que el texto introducido sea un número válido
-            if (int.TryParse(txtCantidad.Text, out int cantidad))
-            {
-                // Mostrar el mensaje emergente con la cantidad ingresada
-                DialogResult result = MessageBox.Show(
-                    $"Se han ingresado {cantidad} euros en su cuenta.",
-                    "Confirmación",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
-
-                // Si el usuario hace clic en Aceptar
-                if (result == DialogResult.OK)
+            var client = new HttpClient();
+            string url;
+            if (int.TryParse(txtCantidad.Text, out int cantidad)) {
+                switch (opcion)
                 {
-                    // Abrir Form1
-                    Form1 form1 = new Form1();
-                    form1.Show();
 
-                    // Cerrar el formulario actual
-                    this.Close();
+                    case 2:
+
+
+                        //EJEMPLO DE AÑADIR DINERO
+                        //Enciendes en Swagger y pruebas el método que quieres usar. Te dará una url y la escribes en éste string.
+                        url = "https://localhost:7243/api/Cuenta/DineroAñadirId?id=" + id + "&cantidad=" + txtCantidad.Text;
+
+                        //usas el método de CuentaController adecuad. Siempre es la url y el new StringContent, si e que pide el segundo.
+                        var response = await client.PutAsync(url, new StringContent("", Encoding.UTF8, "application/json"));// await client.PutAsJsonAsync(url);
+                                                                                                                            //recuerda lo que cambiaste en controller.
+                        //Si ha habido éxito, se continúa. El contenido de este ejemplo se debe cambiar.
+                        if (response.IsSuccessStatusCode)
+                        {
+                            // Obtener el contenido JSON de la respuesta
+                            var result = await response.Content.ReadAsStringAsync();
+
+                            // Mostrar el resultado en la interfaz, por ejemplo, en un TextBox o MessageBox
+                            MessageBox.Show($"Respuesta de la API: {result}");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error en la solicitud");
+                        }
+
+                        break;
+                 
                 }
-            }
-            else
-            {
-                // Mostrar un mensaje de error si el texto no es válido
-                MessageBox.Show("Por favor, introduce una cantidad válida.",
-                                "Error",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
-            }*/
-
-            if (int.TryParse(txtCantidad.Text, out int cantidad))
-            {
-
-
-            }
-            else
-            {
-                // Mostrar un mensaje de error si el texto no es válido
-                MessageBox.Show("Por favor, introduce una cantidad válida.",
-                                "Error",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
-            }
+            }   else
+                        {
+                            // Mostrar un mensaje de error si el texto no es válido
+                            MessageBox.Show("Por favor, introduce una cantidad válida.",
+                                            "Error",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.Error);
+                        }
+                        
         }
     }
 }
+
