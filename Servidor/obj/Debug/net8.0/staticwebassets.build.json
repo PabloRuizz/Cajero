@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "xeDWS/lrIOFE6cja7ggbZNV5VN0GnkHP0Cg+WplF64U=",
+  "Hash": "tqfvUH+nJr0EIzUa+BGElOl7AsFP7Nqwp4aE4TGZe5k=",
   "Source": "Servidor",
   "BasePath": "_content/Servidor",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

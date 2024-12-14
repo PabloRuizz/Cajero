@@ -32,6 +32,7 @@
             rbOpcion1 = new RadioButton();
             rbOpcion2 = new RadioButton();
             btnContinuar = new Button();
+            rbOpcion3 = new RadioButton();
             SuspendLayout();
             // 
             // label1
@@ -68,7 +69,7 @@
             // 
             // btnContinuar
             // 
-            btnContinuar.Location = new Point(120, 195);
+            btnContinuar.Location = new Point(118, 237);
             btnContinuar.Name = "btnContinuar";
             btnContinuar.Size = new Size(75, 23);
             btnContinuar.TabIndex = 3;
@@ -76,11 +77,23 @@
             btnContinuar.UseVisualStyleBackColor = true;
             btnContinuar.Click += btnContinuar_Click;
             // 
+            // rbOpcion3
+            // 
+            rbOpcion3.AutoSize = true;
+            rbOpcion3.Location = new Point(108, 184);
+            rbOpcion3.Name = "rbOpcion3";
+            rbOpcion3.Size = new Size(94, 19);
+            rbOpcion3.TabIndex = 4;
+            rbOpcion3.TabStop = true;
+            rbOpcion3.Text = "Transferencia";
+            rbOpcion3.UseVisualStyleBackColor = true;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(324, 384);
+            Controls.Add(rbOpcion3);
             Controls.Add(btnContinuar);
             Controls.Add(rbOpcion2);
             Controls.Add(rbOpcion1);
@@ -97,5 +110,6 @@
         private RadioButton rbOpcion1;
         private RadioButton rbOpcion2;
         private Button btnContinuar;
+        private RadioButton rbOpcion3;
     }
 }

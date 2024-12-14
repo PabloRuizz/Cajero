@@ -29,6 +29,10 @@ namespace Cajero
                 case 1:
                     label1.Text = "Introduzca el dinero que desea ingresar en la ranura";
                     break;
+                case 2:
+                    label1.Text = "Introduzca el dinero que desea tranferir";
+                    break;
+
             }
             this.id = newId;
         }
@@ -42,7 +46,8 @@ namespace Cajero
         {
             var client = new HttpClient();
             string url;
-            if (int.TryParse(txtCantidad.Text, out int cantidad)) {
+            if (int.TryParse(txtCantidad.Text, out int cantidad))
+            {
                 switch (opcion)
                 {
 
@@ -56,7 +61,7 @@ namespace Cajero
                         //usas el método de CuentaController adecuad. Siempre es la url y el new StringContent, si e que pide el segundo.
                         var response = await client.PutAsync(url, new StringContent("", Encoding.UTF8, "application/json"));// await client.PutAsJsonAsync(url);
                                                                                                                             //recuerda lo que cambiaste en controller.
-                        //Si ha habido éxito, se continúa. El contenido de este ejemplo se debe cambiar.
+                                                                                                                            //Si ha habido éxito, se continúa. El contenido de este ejemplo se debe cambiar.
                         if (response.IsSuccessStatusCode)
                         {
                             // Obtener el contenido JSON de la respuesta
@@ -71,18 +76,46 @@ namespace Cajero
                         }
 
                         break;
-                 
-                }
-            }   else
+
+                    case 3:
+                        // Caso de retirar dinero
+                        url = "https://localhost:7243/api/Cuenta/DineroRetirarId?id=" + id + "&cantidad=" + cantidad;
+
+                        var responseWithdraw = await client.PutAsync(url, new StringContent("", Encoding.UTF8, "application/json"));
+
+                        if (responseWithdraw.IsSuccessStatusCode)
                         {
-                            // Mostrar un mensaje de error si el texto no es válido
-                            MessageBox.Show("Por favor, introduce una cantidad válida.",
+                            var result = await responseWithdraw.Content.ReadAsStringAsync();
+                            var dialogResult = MessageBox.Show($"Retirando {cantidad} euros. Puede recoger su dinero.\nRespuesta de la API: {result}",
+                                                               "Confirmación",
+                                                               MessageBoxButtons.OK,
+                                                               MessageBoxIcon.Information);
+
+                            if (dialogResult == DialogResult.OK)
+                            {
+                                Form1 form1 = new Form1();
+                                form1.Show();
+                                this.Close();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error en la solicitud. No se pudo retirar el dinero.",
                                             "Error",
                                             MessageBoxButtons.OK,
                                             MessageBoxIcon.Error);
                         }
-                        
+                        break;
+                }
+            }
+            else
+            {
+                // Mostrar un mensaje de error si el texto no es válido o <= 0
+                MessageBox.Show("Por favor, introduce una cantidad válida y positiva.",
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
         }
     }
 }
-

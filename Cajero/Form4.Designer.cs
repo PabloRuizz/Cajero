@@ -36,7 +36,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(14, 75);
+            label1.Location = new Point(16, 75);
             label1.Name = "label1";
             label1.Size = new Size(278, 15);
             label1.TabIndex = 0;
@@ -45,20 +45,20 @@
             // 
             // txtCantidad
             // 
-            txtCantidad.Location = new Point(102, 137);
+            txtCantidad.Location = new Point(101, 137);
             txtCantidad.Name = "txtCantidad";
             txtCantidad.Size = new Size(100, 23);
             txtCantidad.TabIndex = 1;
             // 
             // btnSiguiente
             // 
-            btnSiguiente.Location = new Point(116, 197);
+            btnSiguiente.Location = new Point(115, 197);
             btnSiguiente.Name = "btnSiguiente";
             btnSiguiente.Size = new Size(75, 23);
             btnSiguiente.TabIndex = 2;
             btnSiguiente.Text = "Siguiente";
             btnSiguiente.UseVisualStyleBackColor = true;
-            btnSiguiente.Click += this.btnSiguiente_Click;
+            btnSiguiente.Click += btnSiguiente_Click;
             // 
             // Form4
             // 

@@ -39,6 +39,12 @@ namespace Cajero
                 formulario4.Show();
                 this.Hide(); // Opcional: Oculta el formulario actual.
             }
+            else if (rbOpcion3.Checked)
+            {
+                Form4 formulario4 = new Form4(2, id); // Reemplaza con el formulario que deseas mostrar.
+                formulario4.Show();
+                this.Hide(); // Opcional: Oculta el formulario actual.
+            }
 
         }
     }
