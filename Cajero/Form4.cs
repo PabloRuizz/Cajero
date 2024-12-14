@@ -51,7 +51,7 @@ namespace Cajero
                 switch (opcion)
                 {
 
-                    case 2:
+                    case 1:
 
 
                         //EJEMPLO DE AÑADIR DINERO
@@ -77,7 +77,7 @@ namespace Cajero
 
                         break;
 
-                    case 3:
+                    case 0:
                         // Caso de retirar dinero
                         url = "https://localhost:7243/api/Cuenta/DineroRetirarId?id=" + id + "&cantidad=" + cantidad;
 

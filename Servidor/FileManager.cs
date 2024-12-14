@@ -66,9 +66,10 @@ namespace Servidor
 
         public static bool CrearCuenta(string id, string nombre)
         {
-            string[] linea=getLineaNombre(nombre);
+            string[] lineaNombre=getLineaNombre(nombre);
+            string[] lineaId=getLineaId(id);
 
-            if (linea == null) {
+            if (lineaNombre == null && lineaId == null) {
                 using (StreamWriter writer = new StreamWriter("TextFile1.txt"))
                 {
                     writer.WriteLine(crearLinea(id,nombre,"0"));
