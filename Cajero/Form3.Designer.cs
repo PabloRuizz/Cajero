@@ -29,30 +29,31 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            txtCantidad = new TextBox();
+            txtNombre = new TextBox();
             btnSiguiente = new Button();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(31, 64);
+            label1.Location = new Point(39, 61);
             label1.Name = "label1";
-            label1.Size = new Size(214, 15);
+            label1.Size = new Size(196, 30);
             label1.TabIndex = 0;
-            label1.Text = "Introduzca la cantidad que desea retirar";
+            label1.Text = "Introduzca el nombre de la persona \r\na la que desea transferir";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             label1.Click += label1_Click;
             // 
-            // txtCantidad
+            // txtNombre
             // 
-            txtCantidad.Location = new Point(86, 115);
-            txtCantidad.Name = "txtCantidad";
-            txtCantidad.Size = new Size(100, 23);
-            txtCantidad.TabIndex = 1;
+            txtNombre.Location = new Point(82, 115);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(100, 23);
+            txtNombre.TabIndex = 1;
             // 
             // btnSiguiente
             // 
-            btnSiguiente.Location = new Point(100, 170);
+            btnSiguiente.Location = new Point(94, 170);
             btnSiguiente.Name = "btnSiguiente";
             btnSiguiente.Size = new Size(75, 23);
             btnSiguiente.TabIndex = 2;
@@ -66,7 +67,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(283, 348);
             Controls.Add(btnSiguiente);
-            Controls.Add(txtCantidad);
+            Controls.Add(txtNombre);
             Controls.Add(label1);
             Name = "Form3";
             Text = "Form3";
@@ -77,7 +78,7 @@
         #endregion
 
         private Label label1;
-        private TextBox txtCantidad;
+        private TextBox txtNombre;
         private Button btnSiguiente;
     }
 }

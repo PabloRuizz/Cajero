@@ -30,6 +30,9 @@ namespace Cajero
                 case 1:
                     label1.Text = "Introduzca el dinero que desea ingresar en la ranura";
                     break;
+                case 2:
+                    label1.Text = "Introduzca el dinero que desea transferir";
+                    break;
             }
             this.id = newId;
             

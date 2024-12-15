@@ -24,37 +24,24 @@ namespace Cajero
 
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
-            // Validar que el texto introducido sea un número entero válido
-            if (int.TryParse(txtCantidad.Text, out int cantidad))
+            // Validar que el texto no esté vacío y que contenga solo letras
+            if (!string.IsNullOrWhiteSpace(txtNombre.Text) && txtNombre.Text.All(char.IsLetter))
             {
-                // Mostrar el mensaje emergente con la cantidad retirada
-                DialogResult result = MessageBox.Show(
-                    $"Retirando {cantidad} euros. Puede recoger su dinero.",
-                    "Confirmación",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
 
-                // Si el usuario hace clic en "Aceptar"
-                if (result == DialogResult.OK)
-                {
-                    // Abrir Form1
-                    Form1 form1 = new Form1();
-                    form1.Show();
+                // Si es válido, abrir el siguiente formulario
+                Form4 siguienteFormulario = new Form4(2, Name);
+                siguienteFormulario.Show();
 
-                    // Cerrar el formulario actual
-                    this.Close();
-                }
+                // Opcionalmente, cerrar el formulario actual
+                this.Hide();
             }
             else
             {
-                // Mostrar un mensaje de error si el texto no es válido
-                MessageBox.Show(
-                    "Por favor, introduce una cantidad válida.",
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
+                // Mostrar un mensaje de error si el nombre no es válido
+                MessageBox.Show("Por favor, introduce un nombre válido (solo letras y sin espacios vacíos).",
+                                "Nombre Inválido",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
             }
         }
     }
