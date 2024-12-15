@@ -12,9 +12,11 @@ namespace Cajero
 {
     public partial class Form3 : Form
     {
-        public Form3()
+        string id;
+        public Form3(string newId)
         {
             InitializeComponent();
+            this.id = newId;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -29,7 +31,7 @@ namespace Cajero
             {
 
                 // Si es válido, abrir el siguiente formulario
-                Form4 siguienteFormulario = new Form4(2, Name);
+                Form4 siguienteFormulario = new Form4(2, id,txtNombre.Text);
                 siguienteFormulario.Show();
 
                 // Opcionalmente, cerrar el formulario actual

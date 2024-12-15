@@ -35,11 +35,12 @@ namespace Cajero
                     break;
             }
             this.id = newId;
-            
+
         }
 
         public Form4(int i, string newId, string newNombre)
         {
+            InitializeComponent();
             this.opcion = i;
             switch (i)
             {
@@ -47,6 +48,7 @@ namespace Cajero
                     label1.Text = "Introduzca el dinero que desea tranferir";
                     break;
             }
+            this.id = newId;
             this.nombre = newNombre;
         }
 
@@ -60,7 +62,7 @@ namespace Cajero
             var client = new HttpClient();
             string url;
 
-            
+
             if (int.TryParse(txtCantidad.Text, out int cantidad))
             {
                 switch (opcion)
@@ -111,7 +113,7 @@ namespace Cajero
                             var result = await response.Content.ReadAsStringAsync();
 
                             // Mostrar el resultado en la interfaz, por ejemplo, en un TextBox o MessageBox
-                            var dialogResult= MessageBox.Show($"Respuesta de la API: {result}");
+                            var dialogResult = MessageBox.Show($"Respuesta de la API: {result}");
 
                             if (dialogResult == DialogResult.OK)
                             {
@@ -126,9 +128,41 @@ namespace Cajero
                         }
 
                         break;
+                    case 2:
+                        url = "https://localhost:7243/api/Cuenta/DineroRetirarId?id=" + id + "&cantidad=" + cantidad;
+                        var response2 = await client.PutAsync(url, new StringContent("", Encoding.UTF8, "application/json"));
+                        if (response2.IsSuccessStatusCode)
+                        {
+                            url = "https://localhost:7243/api/Cuenta/DineroAñadirConNombre?nombre=" + nombre + "&cantidad=" + cantidad;
+                            var response3 = await client.PutAsync(url, new StringContent("", Encoding.UTF8, "application/json"));
+                            if (response3.IsSuccessStatusCode)
+                            {
+                                // Obtener el contenido JSON de la respuesta
+                                var result = await response3.Content.ReadAsStringAsync();
+
+                                // Mostrar el resultado en la interfaz, por ejemplo, en un TextBox o MessageBox
+                                var dialogResult = MessageBox.Show($"Se ha enviado el dinero exitosamente a {nombre}");
+
+                                if (dialogResult == DialogResult.OK)
+                                {
+                                    Form1 form1 = new Form1();
+                                    form1.Show();
+                                    this.Close();
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error en la solicitud");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error en la solicitud");
+                        }
+                        break;
 
 
-                    
+
                 }
             }
             else

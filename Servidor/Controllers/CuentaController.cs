@@ -72,5 +72,12 @@ namespace Servidor.Controllers
         {
             FileManager.eliminarLinea(id);
         }
+
+        [HttpPut("DineroAñadirConNombre")]
+        public void AñadirNombre([FromQuery] string nombre, [FromQuery] int cantidad)
+        {
+            string[] resultado = FileManager.getLineaNombre(nombre);
+            FileManager.meterDinero(resultado[0], cantidad);
+        }
     }
 }
