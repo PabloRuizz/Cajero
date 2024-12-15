@@ -32,7 +32,7 @@ namespace Cajero
             string url;
             if (rbOpcion1.Checked)
             {
-                url = "https://localhost:7243/api/Cuenta/Comprobar dinero?id="+id;
+                url = "https://localhost:7243/api/FileManager/Comprobar dinero?id=" + id;
                 var responseWithdraw = await client.GetAsync(url);
 
                 if (responseWithdraw.IsSuccessStatusCode)

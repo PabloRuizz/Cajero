@@ -6,7 +6,7 @@ namespace Servidor.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CuentaController : ControllerBase
+    public class FileManagerController : ControllerBase
     {
         // GET: api/<CuentaController>
         [HttpGet]

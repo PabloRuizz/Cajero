@@ -69,7 +69,7 @@ namespace Cajero
                 {
                     case 0:
                         // Caso de retirar dinero
-                        url = "https://localhost:7243/api/Cuenta/DineroRetirarId?id=" + id + "&cantidad=" + cantidad;
+                        url = "https://localhost:7243/api/FileManager/DineroRetirarId?id=" + id + "&cantidad=" + cantidad;
 
                         var responseWithdraw = await client.PutAsync(url, new StringContent("", Encoding.UTF8, "application/json"));
 
@@ -101,9 +101,9 @@ namespace Cajero
 
                         //EJEMPLO DE AÑADIR DINERO
                         //Enciendes en Swagger y pruebas el método que quieres usar. Te dará una url y la escribes en éste string.
-                        url = "https://localhost:7243/api/Cuenta/DineroAñadirId?id=" + id + "&cantidad=" + txtCantidad.Text;
+                        url = "https://localhost:7243/api/FileManager/DineroAñadirId?id=" + id + "&cantidad=" + txtCantidad.Text;
 
-                        //usas el método de CuentaController adecuad. Siempre es la url y el new StringContent, si e que pide el segundo.
+                        //usas el método de FileManagerController adecuad. Siempre es la url y el new StringContent, si e que pide el segundo.
                         var response = await client.PutAsync(url, new StringContent("", Encoding.UTF8, "application/json"));// await client.PutAsJsonAsync(url);
                                                                                                                             //recuerda lo que cambiaste en controller.
                                                                                                                             //Si ha habido éxito, se continúa. El contenido de este ejemplo se debe cambiar.
@@ -129,11 +129,11 @@ namespace Cajero
 
                         break;
                     case 2:
-                        url = "https://localhost:7243/api/Cuenta/DineroRetirarId?id=" + id + "&cantidad=" + cantidad;
+                        url = "https://localhost:7243/api/FileManager/DineroRetirarId?id=" + id + "&cantidad=" + cantidad;
                         var response2 = await client.PutAsync(url, new StringContent("", Encoding.UTF8, "application/json"));
                         if (response2.IsSuccessStatusCode)
                         {
-                            url = "https://localhost:7243/api/Cuenta/DineroAñadirConNombre?nombre=" + nombre + "&cantidad=" + cantidad;
+                            url = "https://localhost:7243/api/FileManager/DineroAñadirConNombre?nombre=" + nombre + "&cantidad=" + cantidad;
                             var response3 = await client.PutAsync(url, new StringContent("", Encoding.UTF8, "application/json"));
                             if (response3.IsSuccessStatusCode)
                             {
