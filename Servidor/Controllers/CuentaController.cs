@@ -37,7 +37,7 @@ namespace Servidor.Controllers
         public string GetDinero([FromQuery] string id)
         {
             string[] resultado=FileManager.getLineaId(id);
-            return "La cantidad en la cuenta "+ id+ " es "+resultado[2];
+            return resultado[2];
         }
 
         [HttpGet("all")]

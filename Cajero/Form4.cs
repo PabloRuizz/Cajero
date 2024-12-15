@@ -17,6 +17,7 @@ namespace Cajero
     {
         string id;
         int opcion = 0;
+        string nombre;
         public Form4(int i, string newId)
         {
             InitializeComponent();
@@ -29,12 +30,21 @@ namespace Cajero
                 case 1:
                     label1.Text = "Introduzca el dinero que desea ingresar en la ranura";
                     break;
+            }
+            this.id = newId;
+            
+        }
+
+        public Form4(int i, string newId, string newNombre)
+        {
+            this.opcion = i;
+            switch (i)
+            {
                 case 2:
                     label1.Text = "Introduzca el dinero que desea tranferir";
                     break;
-
             }
-            this.id = newId;
+            this.nombre = newNombre;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -46,37 +56,12 @@ namespace Cajero
         {
             var client = new HttpClient();
             string url;
+
+            
             if (int.TryParse(txtCantidad.Text, out int cantidad))
             {
                 switch (opcion)
                 {
-
-                    case 1:
-
-
-                        //EJEMPLO DE AÑADIR DINERO
-                        //Enciendes en Swagger y pruebas el método que quieres usar. Te dará una url y la escribes en éste string.
-                        url = "https://localhost:7243/api/Cuenta/DineroAñadirId?id=" + id + "&cantidad=" + txtCantidad.Text;
-
-                        //usas el método de CuentaController adecuad. Siempre es la url y el new StringContent, si e que pide el segundo.
-                        var response = await client.PutAsync(url, new StringContent("", Encoding.UTF8, "application/json"));// await client.PutAsJsonAsync(url);
-                                                                                                                            //recuerda lo que cambiaste en controller.
-                                                                                                                            //Si ha habido éxito, se continúa. El contenido de este ejemplo se debe cambiar.
-                        if (response.IsSuccessStatusCode)
-                        {
-                            // Obtener el contenido JSON de la respuesta
-                            var result = await response.Content.ReadAsStringAsync();
-
-                            // Mostrar el resultado en la interfaz, por ejemplo, en un TextBox o MessageBox
-                            MessageBox.Show($"Respuesta de la API: {result}");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Error en la solicitud");
-                        }
-
-                        break;
-
                     case 0:
                         // Caso de retirar dinero
                         url = "https://localhost:7243/api/Cuenta/DineroRetirarId?id=" + id + "&cantidad=" + cantidad;
@@ -106,6 +91,41 @@ namespace Cajero
                                             MessageBoxIcon.Error);
                         }
                         break;
+                    case 1:
+
+
+                        //EJEMPLO DE AÑADIR DINERO
+                        //Enciendes en Swagger y pruebas el método que quieres usar. Te dará una url y la escribes en éste string.
+                        url = "https://localhost:7243/api/Cuenta/DineroAñadirId?id=" + id + "&cantidad=" + txtCantidad.Text;
+
+                        //usas el método de CuentaController adecuad. Siempre es la url y el new StringContent, si e que pide el segundo.
+                        var response = await client.PutAsync(url, new StringContent("", Encoding.UTF8, "application/json"));// await client.PutAsJsonAsync(url);
+                                                                                                                            //recuerda lo que cambiaste en controller.
+                                                                                                                            //Si ha habido éxito, se continúa. El contenido de este ejemplo se debe cambiar.
+                        if (response.IsSuccessStatusCode)
+                        {
+                            // Obtener el contenido JSON de la respuesta
+                            var result = await response.Content.ReadAsStringAsync();
+
+                            // Mostrar el resultado en la interfaz, por ejemplo, en un TextBox o MessageBox
+                            var dialogResult= MessageBox.Show($"Respuesta de la API: {result}");
+
+                            if (dialogResult == DialogResult.OK)
+                            {
+                                Form1 form1 = new Form1();
+                                form1.Show();
+                                this.Close();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error en la solicitud");
+                        }
+
+                        break;
+
+
+                    
                 }
             }
             else
