@@ -1,3 +1,6 @@
+using System.Security.Policy;
+using System.Text;
+
 namespace Cajero
 {
     public partial class Form1 : Form
@@ -72,16 +75,44 @@ namespace Cajero
             txtID.Text = "";
         }
 
-        private void btnEnviar_Click(object sender, EventArgs e)
+        private async void btnEnviar_Click(object sender, EventArgs e)
         {
-            // Crea una instancia del segundo formulario
-            Form2 formulario2 = new Form2(txtID.Text);
+            var client = new HttpClient();
+            string url;
+            url = "https://localhost:7243/api/FileManager/id?id="+txtID.Text;
 
-            // Muestra el segundo formulario
-            formulario2.Show();
+            var responseWithdraw = await client.GetAsync(url);
+            if (responseWithdraw.IsSuccessStatusCode)
+            {
+                var result = await responseWithdraw.Content.ReadAsStringAsync();
+                if (result!="")
+                {
+                    // Crea una instancia del segundo formulario
+                    Form2 formulario2 = new Form2(txtID.Text);
 
-            // Opcional: Cierra el formulario actual
-            this.Hide();
+                    // Muestra el segundo formulario
+                    formulario2.Show();
+                    // Opcional: Cierra el formulario actual
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Id equivocado, escriba otro",
+                                "Id Inválido",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error",
+                                "Nombre Inválido",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+            }
+
+
+            
         }
 
     }

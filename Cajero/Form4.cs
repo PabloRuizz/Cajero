@@ -124,7 +124,10 @@ namespace Cajero
                         }
                         else
                         {
-                            MessageBox.Show("Error en la solicitud");
+                            MessageBox.Show("Error en la solicitud",
+                                "Nombre Inválido",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
                         }
 
                         break;
@@ -152,12 +155,18 @@ namespace Cajero
                             }
                             else
                             {
-                                MessageBox.Show("Error en la solicitud");
+                                MessageBox.Show("Error en la solicitud",
+                                "Nombre Inválido",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Error en la solicitud");
+                            MessageBox.Show("Error en la solicitud",
+                                "Nombre Inválido",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
                         }
                         break;
 

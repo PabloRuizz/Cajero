@@ -24,18 +24,29 @@ namespace Cajero
 
         }
 
-        private void btnSiguiente_Click(object sender, EventArgs e)
+        private async void btnSiguiente_Click(object sender, EventArgs e)
         {
-            // Validar que el texto no esté vacío y que contenga solo letras
-            if (!string.IsNullOrWhiteSpace(txtNombre.Text) && txtNombre.Text.All(char.IsLetter))
+            var client = new HttpClient();
+            string url="https://localhost:7243/api/FileManager/nombre?nombre="+txtNombre.Text;
+            var responseWithdraw = await client.GetAsync(url);
+            if (responseWithdraw.IsSuccessStatusCode)
             {
+                var result = await responseWithdraw.Content.ReadAsStringAsync();
+                if (result != "")
+                {
+                    // Crea una instancia del segundo formulario
+                    Form4 siguienteFormulario = new Form4(2, id, txtNombre.Text);
+                    siguienteFormulario.Show();
 
-                // Si es válido, abrir el siguiente formulario
-                Form4 siguienteFormulario = new Form4(2, id,txtNombre.Text);
-                siguienteFormulario.Show();
-
-                // Opcionalmente, cerrar el formulario actual
-                this.Hide();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, introduce un nombre válido (solo letras y sin espacios vacíos).",
+                                "Nombre Inválido",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                }
             }
             else
             {

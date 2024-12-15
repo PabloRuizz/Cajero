@@ -22,7 +22,12 @@ namespace Servidor.Controllers
         public string Get([FromQuery]string id)
         {
             string[] resultado=FileManager.getLineaId(id);
-            return FileManager.crearLinea(resultado[0], resultado[1], resultado[2]);
+            if (resultado != null)
+            {
+                return FileManager.crearLinea(resultado[0], resultado[1], resultado[2]);
+            }
+            return null;
+            
 
         }
 
@@ -30,7 +35,11 @@ namespace Servidor.Controllers
         public string GetNombre([FromQuery] string nombre)
         {
             string[] resultado=FileManager.getLineaNombre(nombre);
-            return FileManager.crearLinea(resultado[0], resultado[1], resultado[2]);
+            if (resultado != null)
+            {
+                return FileManager.crearLinea(resultado[0], resultado[1], resultado[2]);
+            }
+            return null;
         }
 
         [HttpGet("Comprobar dinero")]
