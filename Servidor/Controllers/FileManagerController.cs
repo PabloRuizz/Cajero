@@ -14,7 +14,7 @@ namespace Servidor.Controllers
         {
 
             return null;
-            //return FileManager.get();
+           
         }
 
         // GET api/<CuentaController>/5
@@ -74,7 +74,13 @@ namespace Servidor.Controllers
         {
             FileManager.sacarDinero(id, cantidad);
         }
-
+        
+        [HttpPut("DineroAñadirConNombre")]
+        public void AñadirNombre([FromQuery] string nombre, [FromQuery] int cantidad)
+        {
+            string[] resultado = FileManager.getLineaNombre(nombre);
+            FileManager.meterDinero(resultado[0], cantidad);
+        }
         // DELETE api/<CuentaController>/5
         [HttpDelete("{id}")]
         public void Delete(string id)
@@ -82,11 +88,6 @@ namespace Servidor.Controllers
             FileManager.eliminarLinea(id);
         }
 
-        [HttpPut("DineroAñadirConNombre")]
-        public void AñadirNombre([FromQuery] string nombre, [FromQuery] int cantidad)
-        {
-            string[] resultado = FileManager.getLineaNombre(nombre);
-            FileManager.meterDinero(resultado[0], cantidad);
-        }
+       
     }
 }

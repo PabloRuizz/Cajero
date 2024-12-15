@@ -42,6 +42,7 @@ namespace Cajero
                 }
                 else
                 {
+                    // Mostrar un mensaje de error si el nombre no es válido
                     MessageBox.Show("Por favor, introduce un nombre válido (solo letras y sin espacios vacíos).",
                                 "Nombre Inválido",
                                 MessageBoxButtons.OK,

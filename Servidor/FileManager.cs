@@ -5,14 +5,13 @@ namespace Servidor
 {
     public class FileManager
     {
-        //private string archivo = "TextFile1.txt";
         public static string[] get()
         {
             int posicion = 0;
             string[] result = new string[50];
-            if (File.Exists("TextFile1.txt"))
+            if (File.Exists("TextFile.txt"))
             {
-                foreach (var linea in File.ReadLines("TextFile1.txt"))
+                foreach (var linea in File.ReadLines("TextFile.txt"))
                 {
                     result[posicion] = linea;
                     posicion++;
@@ -70,7 +69,7 @@ namespace Servidor
             string[] lineaId=getLineaId(id);
 
             if (lineaNombre == null && lineaId == null) {
-                using (StreamWriter writer = new StreamWriter("TextFile1.txt"))
+                using (StreamWriter writer = new StreamWriter("TextFile.txt"))
                 {
                     writer.WriteLine(crearLinea(id,nombre,"0"));
                     return true;
@@ -88,9 +87,9 @@ namespace Servidor
         {
             int posicion = 0;
 
-            if (File.Exists("TextFile1.txt"))
+            if (File.Exists("TextFile.txt"))
             {
-                foreach (var linea in File.ReadLines("TextFile1.txt"))
+                foreach (var linea in File.ReadLines("TextFile.txt"))
                 {
 
                     String lineaRespuesta = linea + "," + posicion;
@@ -109,9 +108,9 @@ namespace Servidor
         {
             int posicion = 0;
 
-            if (File.Exists("TextFile1.txt"))
+            if (File.Exists("TextFile.txt"))
             {
-                foreach (var linea in File.ReadLines("TextFile1.txt"))
+                foreach (var linea in File.ReadLines("TextFile.txt"))
                 {
 
                     String lineaRespuesta = linea + "," + posicion;
@@ -134,7 +133,7 @@ namespace Servidor
         static void actualizarLinea(string nuevoTexto, int linea)
         {
             string archivoTemp = "archivo_temp.txt";
-            using (StreamReader reader = new StreamReader("TextFile1.txt"))
+            using (StreamReader reader = new StreamReader("TextFile.txt"))
             using (StreamWriter writer = new StreamWriter(archivoTemp))
             {
                 int currentLine = 0;
@@ -151,19 +150,19 @@ namespace Servidor
                     }
                     currentLine++;
                 }
-            }
-            File.Delete("TextFile1.txt");
-            File.Move(archivoTemp, "TextFile1.txt");
+            }   
+            File.Delete("TextFile.txt");
+            File.Move(archivoTemp, "TextFile.txt");
         }
 
 
         public static void eliminarLinea(string nombre)
         {
-            var lines = File.ReadAllLines("TextFile1.txt").ToList();
+            var lines = File.ReadAllLines("TextFile.txt").ToList();
 
             lines.RemoveAll(line => line.Contains(nombre));
 
-            File.WriteAllLines("TextFile1.txt", lines);
+            File.WriteAllLines("TextFile.txt", lines);
         }
     }
 }

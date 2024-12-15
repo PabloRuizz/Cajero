@@ -92,7 +92,7 @@ namespace Cajero
 
                     // Muestra el segundo formulario
                     formulario2.Show();
-                    // Opcional: Cierra el formulario actual
+                    // Cierra el formulario actual
                     this.Hide();
                 }
                 else

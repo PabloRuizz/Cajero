@@ -50,27 +50,24 @@ namespace Cajero
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
                 }
-                
-                // formulario3.Show();
-                //this.Hide(); // Opcional: Oculta el formulario actual.
             }
             else if (rbOpcion2.Checked)
             {
                 Form4 formulario3 = new Form4(0, id); // Reemplaza con el formulario que deseas mostrar.
                 formulario3.Show();
-                this.Hide(); // Opcional: Oculta el formulario actual.
+                this.Hide(); // Oculta el formulario actual.
             }
             else if (rbOpcion3.Checked)
             {
                 Form4 formulario4 = new Form4(1, id); // Reemplaza con el formulario que deseas mostrar.
                 formulario4.Show();
-                this.Hide(); // Opcional: Oculta el formulario actual.
+                this.Hide(); // Oculta el formulario actual.
             }
             else if (rbOpcion4.Checked)
             {
                 Form3 formulario3 = new Form3(id); // Reemplaza con el formulario que deseas mostrar.
                 formulario3.Show();
-                this.Hide(); // Opcional: Oculta el formulario actual.
+                this.Hide(); // Oculta el formulario actual.
             }
 
         }
